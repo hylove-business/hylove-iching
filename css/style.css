@@ -10,14 +10,40 @@
 #opposite-image-box:has(.card-scans:not([hidden])){display:block;padding:14px;min-height:0;background:#f7f4ed}
 @media(max-width:420px){.card-scans{gap:8px}.card-scans figcaption{font-size:12px}}
 
-/* V1.4：提高原卦／相反卦標籤辨識度 */
-.result-card .tag{font-size:18px;font-weight:800;line-height:1.35;padding:9px 16px;letter-spacing:.025em;background:#d5ebe0;color:#164c37;border:1px solid #a3cdb6}
-.result-card .tag.outline{background:#f4e4c4;color:#654614;border-color:#dfc58f}
-@media(max-width:680px){.result-card .tag{font-size:18px;padding:8px 15px}}
-
-/* V1.5：六十四卦下拉選單 */
+/* V1.6 六爻輸入與選單 */
+.casting-panel{background:#fff;border:1px solid #dbe8df;border-radius:17px;padding:27px;margin-bottom:22px;box-shadow:0 3px 16px #1d393509}
+.casting-head{display:flex;justify-content:space-between;align-items:start;gap:14px;flex-wrap:wrap}
+.casting-kicker{font-size:12px;letter-spacing:.08em;font-weight:800;color:#27745e}
+.casting-head h2{font-size:24px;margin:5px 0 8px}
+.casting-desc{color:#52665a;font-size:14px;line-height:1.8;margin:0 0 18px}
+.casting-progress{background:#e5f4ec;border-radius:22px;color:#235b45;font-size:13px;font-weight:800;padding:8px 12px;white-space:nowrap}
+.casting-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr);gap:22px}
+.casting-control{padding:17px 0}
+.casting-step{font-weight:800;font-size:18px;color:#183f35;margin:0 0 17px}
+.casting-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cast-btn{border:2px solid #b9cfc3;background:#f3faf5;color:#205b46;border-radius:14px;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:128px;padding:12px;justify-content:center;touch-action:manipulation}
+.cast-btn.yin{background:#fbf8f0;border-color:#e5d7b8;color:#735626}
+.cast-btn .line-symbol{font-size:40px;line-height:1;font-weight:900}
+.cast-btn strong{font-size:23px}
+.cast-btn span:last-child{font-size:12px}
+.cast-btn:hover:not(:disabled){filter:brightness(.96)}
+.cast-btn:disabled{opacity:.45;cursor:not-allowed}
+.casting-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.casting-actions button{border:1px solid #ccdad0;border-radius:9px;background:white;padding:9px 14px;color:#315b4e;font-size:14px;font-weight:700}
+.casting-actions button:disabled{opacity:.4;cursor:not-allowed}
+.casting-status{font-size:13px;color:#466e5b;min-height:20px;line-height:1.6;margin:15px 0 0}
+.casting-preview{background:#f7f9f6;border:1px solid #e2e9e4;border-radius:14px;padding:16px;text-align:center}
+.casting-preview-title{font-size:14px;font-weight:800;color:#3a5548}
+.line-stack{margin:16px auto 9px;max-width:310px;display:flex;flex-direction:column;gap:7px}
+.preview-line{display:grid;grid-template-columns:55px 1fr 45px;align-items:center;gap:5px;min-height:31px;border-radius:6px;background:#e6f0e9}
+.preview-line.yin{background:#f5ead3}.preview-line.empty{background:#ecefed;color:#a0a9a2}
+.line-index,.line-name{font-size:12px}.line-graphic{font-family:monospace;font-size:20px;letter-spacing:0;white-space:pre;color:#275b48;font-weight:900}.preview-line.yin .line-graphic{color:#80612d}.preview-line.empty .line-graphic{color:#aab2ab}
+.preview-bottom{font-size:12px;color:#62786b}
+.casting-method{border-top:1px solid #e5eee7;margin:20px 0 0;padding-top:13px;font-size:12px;color:#718174;line-height:1.7}
 .select-row{margin-top:22px;padding-top:18px;border-top:1px solid #e4ebe6}
 .select-row label{font-size:15px;margin:0 0 10px;font-weight:750}
-.select-row select{appearance:auto;display:block;width:100%;max-width:100%;border:1px solid #b9cfc3;border-radius:10px;background:#f7faf8;color:#203d33;font-size:16px;padding:13px 14px;min-height:50px;cursor:pointer}
-.select-row select:focus-visible{outline:3px solid #77b6a8;outline-offset:2px}
+.select-row select{display:block;width:100%;border:1px solid #b9cfc3;border-radius:10px;background:#f7faf8;color:#203d33;font-size:16px;padding:13px 14px;min-height:50px;cursor:pointer}
 .select-hint{margin:9px 0 0;font-size:13px;color:#688076;line-height:1.5}
+.result-card .tag{font-size:18px;font-weight:800;line-height:1.35;padding:9px 16px;letter-spacing:.025em;background:#d5ebe0;color:#164c37;border:1px solid #a3cdb6}
+.result-card .tag.outline{background:#f4e4c4;color:#654614;border-color:#dfc58f}
+@media(max-width:680px){.casting-panel{padding:20px 15px}.casting-head h2{font-size:21px}.casting-body{grid-template-columns:1fr;gap:8px}.casting-control{padding:7px 0}.cast-btn{min-height:105px}.preview-line{min-height:28px}.line-stack{max-width:100%}.result-card .tag{font-size:18px;padding:8px 15px}}

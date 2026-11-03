@@ -15,14 +15,51 @@
     <div class="wrap">
       <div class="eyebrow">ICHING · HEXAGRAM LOOKUP</div>
       <h1>易經卦象查詢</h1>
-      <p>輸入卦名，查看原卦卡片，以及其相反卦（目前採用「錯卦」：六爻陰陽全部相反）的卡片。</p>
-      <span class="testing">V1.5</span>
+      <p>擲硬幣六次，依序輸入陰陽，即可查詢原卦與相反卦（錯卦）。也可直接搜尋卦名。</p>
+      <span class="testing">V1.6</span>
     </div>
   </header>
   <main class="wrap">
+    <section class="casting-panel" aria-labelledby="casting-title">
+      <div class="casting-head">
+        <div>
+          <span class="casting-kicker">現場擲幣查卦</span>
+          <h2 id="casting-title">依六次陰陽結果查卦</h2>
+          <p class="casting-desc">從第 1 次到第 6 次，依序按下「陽」或「陰」。<strong>第一爻在最下面，依序往上排。</strong></p>
+        </div>
+        <span class="casting-progress" id="casting-progress">已記錄 0 / 6 爻</span>
+      </div>
+      <div class="casting-body">
+        <div class="casting-control">
+          <p class="casting-step" id="casting-step">第 1 次：請輸入初爻（最下方）</p>
+          <div class="casting-buttons">
+            <button id="cast-yang" type="button" class="cast-btn yang"><span class="line-symbol">⚊</span><strong>陽</strong><span>完整一條線</span></button>
+            <button id="cast-yin" type="button" class="cast-btn yin"><span class="line-symbol">⚋</span><strong>陰</strong><span>中間斷開</span></button>
+          </div>
+          <div class="casting-actions">
+            <button id="cast-undo" type="button" disabled>撤銷上一爻</button>
+            <button id="cast-reset" type="button" disabled>重新開始</button>
+          </div>
+          <p id="casting-status" class="casting-status" role="status" aria-live="polite">尚未輸入，請依擲幣順序開始。</p>
+        </div>
+        <div class="casting-preview" aria-label="六爻排列預覽">
+          <span class="casting-preview-title">卦象即時預覽</span>
+          <div class="line-stack" id="line-stack">
+            <div class="preview-line empty" data-line="6"><span class="line-index">第6爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+            <div class="preview-line empty" data-line="5"><span class="line-index">第5爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+            <div class="preview-line empty" data-line="4"><span class="line-index">第4爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+            <div class="preview-line empty" data-line="3"><span class="line-index">第3爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+            <div class="preview-line empty" data-line="2"><span class="line-index">第2爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+            <div class="preview-line empty" data-line="1"><span class="line-index">第1爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
+          </div>
+          <span class="preview-bottom">↑ 由下往上輸入</span>
+        </div>
+      </div>
+      <p class="casting-method">本版採每次記錄「陰／陽」的簡化方式；若現場是每次擲三枚硬幣並記錄 6、7、8、9（動爻），需另增加變卦規則，目前不在此功能內。</p>
+    </section>
     <section class="search-panel" aria-labelledby="search-title">
       <h2 id="search-title">查詢六十四卦</h2>
-      <p class="hint">可輸入完整卦名（如「乾為天」）或簡稱（如「乾」），也可以從選單選擇。</p>
+      <p class="hint">如果已經知道卦名，可輸入完整名稱、簡稱，或從六十四卦清單直接選擇。</p>
       <form id="search-form" class="search-form">
         <label for="hex-input">卦象名稱</label>
         <div class="search-row">
@@ -35,7 +72,7 @@
           <select id="hex-select" aria-label="選擇六十四卦">
             <option value="">請選擇卦象（依第 1～64 卦排序）</option>
           </select>
-          <p class="select-hint">選擇後會直接顯示原卦與相反卦。</p>
+          <p class="select-hint">選擇後會直接顯示原卦及相反卦。</p>
         </div>
         <div class="quick-row"><span>快速查詢：</span><button type="button" data-quick="乾">乾</button><button type="button" data-quick="坤">坤</button><button type="button" data-quick="泰">泰</button><button type="button" data-quick="既濟">既濟</button><button type="button" data-quick="未濟">未濟</button></div>
       </form>
@@ -61,8 +98,8 @@
           </div>
         </article>
       </div>
-    </section>
+</section>
   </main>
-  <footer>易經卦象查詢 · V1.5 錯卦版測試</footer>
+  <footer>易經卦象查詢 · V1.6 錯卦版測試</footer>
 </body>
 </html>
