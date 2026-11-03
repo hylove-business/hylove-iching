@@ -16,7 +16,7 @@
       <div class="eyebrow">ICHING · HEXAGRAM LOOKUP</div>
       <h1>易經卦象查詢</h1>
       <p>輸入卦名，查看原卦卡片，以及其相反卦（目前採用「錯卦」：六爻陰陽全部相反）的卡片。</p>
-      <span class="testing">V1.3 測試版 · 已套用公司掃描卡片／相反卦採錯卦</span>
+      <span class="testing">V1.5 測試版 · 已套用公司掃描卡片／相反卦採錯卦</span>
     </div>
   </header>
   <main class="wrap">
@@ -29,6 +29,13 @@
           <input id="hex-input" name="hexagram" type="search" placeholder="例如：乾、既濟、地天泰" autocomplete="off" list="hex-options" required>
           <datalist id="hex-options"></datalist>
           <button type="submit">查詢卦象</button>
+        </div>
+        <div class="select-row">
+          <label for="hex-select">或從六十四卦清單選擇</label>
+          <select id="hex-select" aria-label="選擇六十四卦">
+            <option value="">請選擇卦象（依第 1～64 卦排序）</option>
+          </select>
+          <p class="select-hint">選擇後會直接顯示原卦與相反卦。</p>
         </div>
         <div class="quick-row"><span>快速查詢：</span><button type="button" data-quick="乾">乾</button><button type="button" data-quick="坤">坤</button><button type="button" data-quick="泰">泰</button><button type="button" data-quick="既濟">既濟</button><button type="button" data-quick="未濟">未濟</button></div>
       </form>
@@ -58,6 +65,6 @@
       </div>
     </section>
   </main>
-  <footer>易經卦象查詢 · V1.3 錯卦版測試</footer>
+  <footer>易經卦象查詢 · V1.5 錯卦版測試</footer>
 </body>
 </html>
