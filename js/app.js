@@ -34,9 +34,6 @@ function render(hex) {
     setImage(document.querySelector('#opposite-image'), opposite.image, `${opposite.name}卦象正面掃描圖片`);
     setImage(document.querySelector('#opposite-back-image'), opposite.backImage, `${opposite.name}文字背面掃描圖片`);
   }
-  document.querySelector('#opposite-note').textContent = opposite
-    ? `目前相反卦採用易經學理上的「錯卦」：${hex.name} 的錯卦是 ${opposite.name}。若老闆之後改要綜卦或公司自訂對應，只需更新資料檔。`
-    : '目前找不到相反卦對應。';
   statusEl.textContent = `已找到：${hex.name}${opposite ? `；其相反卦（錯卦）為 ${opposite.name}` : ''}`;
 }
 function search(value) {
