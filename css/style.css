@@ -25,3 +25,40 @@ footer{border-top:1px solid #e4e8dd;background:#edf0e8;padding:27px 0 30px;text-
 @media(max-width:700px){.wrap{width:min(100% - 32px,1120px)}.hero-layout{display:block;min-height:0;padding-block:32px 38px}.hero-brand{font-size:10px}.eyebrow{margin-top:27px}.hero-art{display:none}h1{font-size:clamp(33px,8.6vw,43px);letter-spacing:2px}.hero-lead{font-size:14px}.hero-actions a{padding:12px 15px;gap:14px;font-size:13px}.hero-version{margin-top:20px}.steps-band{overflow-x:auto}.steps-inner{width:max-content;min-width:100%;gap:12px;min-height:66px;justify-content:center}.step-item{font-size:11px;gap:5px}.step-index{font-size:10px}.step-arrow{font-size:13px}main.wrap{padding-block:22px 45px}.casting-panel,.search-panel{padding:23px 18px;border-radius:19px}.casting-head{flex-wrap:wrap}.casting-head h2,.search-header h2{font-size:24px}.casting-progress{font-size:12px;padding:7px 13px}.casting-desc{margin-bottom:15px}.casting-body{grid-template-columns:1fr;gap:15px}.casting-control{padding:4px 0 0}.casting-step{font-size:18px;margin-bottom:14px}.cast-btn{min-height:118px;border-radius:15px}.cast-btn .line-symbol{font-size:39px}.cast-btn strong{font-size:22px}.casting-preview{padding:21px 15px}.line-stack{margin:16px auto 12px;max-width:335px}.preview-line{min-height:31px}.casting-method{font-size:11px;margin-top:19px}.search-header{align-items:center}.library-mark{width:52px;height:52px;font-size:13px}.search-row{flex-direction:column;gap:10px}.search-row button{min-height:49px}.results-heading{align-items:center}.cards{grid-template-columns:1fr;gap:17px}.result-card{padding:20px;border-radius:19px}.result-card h3{font-size:24px}.footer-company{font-size:18px}}
 @media(max-width:390px){.hero-actions{flex-direction:column;align-items:stretch}.hero-actions a{width:100%}.steps-inner{gap:8px}.step-item{font-size:10px}.step-index{font-size:9px}.casting-buttons{gap:10px}.cast-btn{min-height:110px}.result-card .tag{font-size:16px;padding:8px 12px}.card-scans{gap:8px}.card-scans figcaption{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* V1.8.1 — 手機文字易讀性強化：不變更程式或六爻計算 */
+.casting-preview-title{font-size:17px}
+.preview-heading small{font-size:13px}
+.preview-line{min-height:40px}
+.line-index,.line-name{font-size:13px;font-weight:750}
+.line-graphic{font-size:20px}
+.preview-bottom{font-size:13px}
+
+@media(max-width:700px){
+  /* 六爻預覽是手機的視覺閱讀重點 */
+  .casting-preview{padding:22px 15px}
+  .casting-preview-title{font-size:19px;line-height:1.45}
+  .preview-heading small{font-size:14px;line-height:1.5}
+  .line-stack{width:100%;max-width:none;gap:9px;margin:20px auto 16px}
+  .preview-line{grid-template-columns:55px minmax(0,1fr) 49px;gap:5px;min-height:48px;padding:5px 8px;border-radius:11px}
+  .line-index,.line-name{font-size:15px;font-weight:800;white-space:nowrap}
+  .line-graphic{font-size:22px;letter-spacing:-.8px;line-height:1.15}
+  .preview-bottom{font-size:15px;font-weight:700;line-height:1.5}
+  /* 其他原本較小的說明文字同步調整 */
+  .hero-lead,.casting-desc,.hint{font-size:16px}
+  .step-item{font-size:13px}
+  .step-index{font-size:12px}
+  .casting-progress,.casting-status,.casting-actions button{font-size:15px}
+  .casting-method,.select-hint,#status,.quick-row,.card-scans figcaption{font-size:14px}
+  .casting-step{font-size:20px}
+  .cast-btn span:last-child{font-size:14px}
+  .search-form label,.search-row button,.quick-row button{font-size:15px}
+  .footer-top{font-size:14px}
+}
+@media(max-width:370px){
+  .casting-preview{padding:19px 10px}
+  .preview-line{grid-template-columns:50px minmax(0,1fr) 42px;gap:3px;padding:4px 5px;min-height:46px}
+  .line-index,.line-name{font-size:14px}
+  .line-graphic{font-size:19px;letter-spacing:-1px}
+}
