@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#173e38">
-  <meta name="description" content="易經六十四卦查詢示範網站。可依卦名查詢原卦與相反卦（錯卦）卡片。">
+  <meta name="theme-color" content="#153e34">
+  <meta name="description" content="海納福企業易經六十四卦互動查詢。擲硬幣六次、輸入陰陽，即可查閱原卦與錯卦卡片。">
   <title>易經六十四卦查詢｜海納福企業</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/hexagrams-data.js" defer></script>
@@ -12,25 +12,46 @@
 </head>
 <body>
   <header class="hero">
-    <div class="wrap">
-      <div class="eyebrow">ICHING · HEXAGRAM LOOKUP</div>
-      <h1>易經卦象查詢</h1>
-      <p>擲硬幣六次，依序輸入陰陽，即可查詢原卦與相反卦（錯卦）。也可直接搜尋卦名。</p>
-      <span class="testing">V1.6</span>
+    <div class="wrap hero-layout">
+      <div class="hero-content">
+        <div class="hero-brand"><span class="brand-mark" aria-hidden="true">䷀</span><span>HYLOVE BUSINESS INC. <span class="brand-divider">/</span> 易經互動體驗</span></div>
+        <div class="eyebrow"><span class="eyebrow-line"></span> I CHING · 64 HEXAGRAMS</div>
+        <h1>六爻之間<br><span>探索易經智慧</span></h1>
+        <p class="hero-lead">擲硬幣六次，依序記錄陰與陽。從六爻組合出你的卦象，探索原卦與對應錯卦。</p>
+        <div class="hero-actions">
+          <a class="hero-primary" href="#casting-title">開始六爻查卦 <span aria-hidden="true">↗</span></a>
+          <a class="hero-secondary" href="#search-title">直接搜尋卦名 <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-version"><span class="version-dot"></span> V1.8 <span class="version-divider">·</span> HYLOVE I CHING</div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+        <div class="art-center"><span class="art-glyph">☯</span><span class="art-sub">陰陽交織 · 生生不息</span></div>
+        <span class="orbit-label orbit-label-top">乾 ䷀</span><span class="orbit-label orbit-label-bottom">坤 ䷁</span>
+      </div>
     </div>
   </header>
+  <div class="steps-band"><div class="wrap steps-inner" aria-label="使用流程">
+    <div class="steps-title">查卦，只需三步驟</div>
+    <div class="step-item"><span class="step-index">01</span><span>擲硬幣六次</span></div>
+    <span class="step-arrow" aria-hidden="true">→</span>
+    <div class="step-item"><span class="step-index">02</span><span>輸入陰陽結果</span></div>
+    <span class="step-arrow" aria-hidden="true">→</span>
+    <div class="step-item"><span class="step-index">03</span><span>查看卦象卡片</span></div>
+  </div></div>
   <main class="wrap">
     <section class="casting-panel" aria-labelledby="casting-title">
       <div class="casting-head">
         <div>
-          <span class="casting-kicker">現場擲幣查卦</span>
-          <h2 id="casting-title">依六次陰陽結果查卦</h2>
-          <p class="casting-desc">從第 1 次到第 6 次，依序按下「陽」或「陰」。<strong>第一爻在最下面，依序往上排。</strong></p>
+          <span class="section-kicker"><span class="section-kicker-line"></span> PRIMARY EXPERIENCE</span>
+          <h2 id="casting-title">六爻輸入 <span class="section-title-muted">· 擲幣查卦</span></h2>
+          <p class="casting-desc">每擲一次硬幣，按下對應的「陽」或「陰」。<strong>由下而上，依序記錄六次。</strong></p>
         </div>
         <span class="casting-progress" id="casting-progress">已記錄 0 / 6 爻</span>
       </div>
       <div class="casting-body">
         <div class="casting-control">
+          <div class="input-eyebrow">STEP BY STEP <span aria-hidden="true">/</span> 擲幣記錄</div>
           <p class="casting-step" id="casting-step">第 1 次：請輸入初爻（最下方）</p>
           <div class="casting-buttons">
             <button id="cast-yang" type="button" class="cast-btn yang"><span class="line-symbol">⚊</span><strong>陽</strong><span>完整一條線</span></button>
@@ -43,7 +64,7 @@
           <p id="casting-status" class="casting-status" role="status" aria-live="polite">尚未輸入，請依擲幣順序開始。</p>
         </div>
         <div class="casting-preview" aria-label="六爻排列預覽">
-          <span class="casting-preview-title">卦象即時預覽</span>
+          <div class="preview-heading"><span class="preview-symbol" aria-hidden="true">☰</span><div><span class="casting-preview-title">卦象即時預覽</span><small>由下往上 · 六爻成卦</small></div></div>
           <div class="line-stack" id="line-stack">
             <div class="preview-line empty" data-line="6"><span class="line-index">第6爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
             <div class="preview-line empty" data-line="5"><span class="line-index">第5爻</span><span class="line-graphic">······</span><span class="line-name">待輸入</span></div>
@@ -58,8 +79,9 @@
       <p class="casting-method">本版採每次記錄「陰／陽」的簡化方式；若現場是每次擲三枚硬幣並記錄 6、7、8、9（動爻），需另增加變卦規則，目前不在此功能內。</p>
     </section>
     <section class="search-panel" aria-labelledby="search-title">
-      <h2 id="search-title">查詢六十四卦</h2>
-      <p class="hint">如果已經知道卦名，可輸入完整名稱、簡稱，或從六十四卦清單直接選擇。</p>
+      <div class="search-header"><div><span class="section-kicker"><span class="section-kicker-line"></span> HEXAGRAM LIBRARY</span>
+      <h2 id="search-title">六十四卦資料庫</h2>
+      <p class="hint">已經知道卦名？可輸入完整名稱、簡稱，或從下拉清單直接選擇。</p></div><span class="library-mark" aria-hidden="true">六十四<br>卦</span></div>
       <form id="search-form" class="search-form">
         <label for="hex-input">卦象名稱</label>
         <div class="search-row">
@@ -79,7 +101,7 @@
       <p id="status" role="status" aria-live="polite">正在載入六十四卦資料…</p>
     </section>
     <section id="results" aria-label="查詢結果" hidden>
-      <div class="results-heading"><h2>查詢結果</h2><span id="result-subtitle"></span></div>
+      <div class="results-heading"><div><span class="section-kicker"><span class="section-kicker-line"></span> HEXAGRAM READING</span><h2>查詢結果</h2></div><span class="result-subtitle" id="result-subtitle"></span></div>
       <div class="cards">
         <article class="result-card">
           <div class="card-top"><span class="tag">原卦</span><span id="original-id" class="number"></span></div>
@@ -100,6 +122,6 @@
       </div>
 </section>
   </main>
-  <footer>易經卦象查詢 · V1.6<br><strong style="display:inline-block;margin-top:10px;font-size:18px;font-weight:800;color:#245b4d;letter-spacing:0.4px">@Hylove Business Inc.</strong></footer>
+  <footer><div class="wrap footer-inner"><div class="footer-top"><span class="footer-symbol" aria-hidden="true">䷀</span><span>易經卦象查詢 <span class="footer-divider">·</span> V1.8</span></div><div class="footer-company">@Hylove Business Inc.</div></div></footer>
 </body>
 </html>
