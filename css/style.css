@@ -9,3 +9,8 @@
 .result-card .card-scans{margin-top:8px}
 #opposite-image-box:has(.card-scans:not([hidden])){display:block;padding:14px;min-height:0;background:#f7f4ed}
 @media(max-width:420px){.card-scans{gap:8px}.card-scans figcaption{font-size:12px}}
+
+/* V1.4：提高原卦／相反卦標籤辨識度 */
+.result-card .tag{font-size:18px;font-weight:800;line-height:1.35;padding:9px 16px;letter-spacing:.025em;background:#d5ebe0;color:#164c37;border:1px solid #a3cdb6}
+.result-card .tag.outline{background:#f4e4c4;color:#654614;border-color:#dfc58f}
+@media(max-width:680px){.result-card .tag{font-size:18px;padding:8px 15px}}
