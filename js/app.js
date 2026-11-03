@@ -1,5 +1,6 @@
 'use strict';
 const input = document.querySelector('#hex-input');
+const select = document.querySelector('#hex-select');
 const form = document.querySelector('#search-form');
 const statusEl = document.querySelector('#status');
 const resultsEl = document.querySelector('#results');
@@ -47,10 +48,13 @@ function search(value) {
     return;
   }
   input.value = hex.name;
+  select.value = String(hex.id);
   location.hash = `q=${encodeURIComponent(hex.name)}`;
   render(hex);
 }
 form.addEventListener('submit', event => { event.preventDefault(); search(input.value); });
+select.addEventListener('change', () => { if (select.value) { const hex = hexagrams.find(h => h.id === Number(select.value)); if (hex) search(hex.name); } });
+input.addEventListener('input', () => { select.value = ''; });
 document.querySelectorAll('[data-quick]').forEach(btn => btn.addEventListener('click', () => search(btn.dataset.quick)));
 function init() {
   try {
@@ -65,7 +69,13 @@ function init() {
         datalist.append(opt);
       }
     }
-    statusEl.textContent = '已載入六十四卦，請輸入卦名或點選快速查詢。';
+    for (const h of [...data].sort((a,b) => a.id-b.id)) {
+      const option = document.createElement('option');
+      option.value = String(h.id);
+      option.textContent = `第 ${String(h.id).padStart(2, '0')} 卦｜${h.name}`;
+      select.append(option);
+    }
+    statusEl.textContent = '已載入六十四卦，可以輸入卦名或從清單直接選擇。';
     if (location.hash.startsWith('#q=')) {
       const q = decodeURIComponent(location.hash.slice(3));
       search(q);
