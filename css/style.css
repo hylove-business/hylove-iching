@@ -14,3 +14,10 @@
 .result-card .tag{font-size:18px;font-weight:800;line-height:1.35;padding:9px 16px;letter-spacing:.025em;background:#d5ebe0;color:#164c37;border:1px solid #a3cdb6}
 .result-card .tag.outline{background:#f4e4c4;color:#654614;border-color:#dfc58f}
 @media(max-width:680px){.result-card .tag{font-size:18px;padding:8px 15px}}
+
+/* V1.5：六十四卦下拉選單 */
+.select-row{margin-top:22px;padding-top:18px;border-top:1px solid #e4ebe6}
+.select-row label{font-size:15px;margin:0 0 10px;font-weight:750}
+.select-row select{appearance:auto;display:block;width:100%;max-width:100%;border:1px solid #b9cfc3;border-radius:10px;background:#f7faf8;color:#203d33;font-size:16px;padding:13px 14px;min-height:50px;cursor:pointer}
+.select-row select:focus-visible{outline:3px solid #77b6a8;outline-offset:2px}
+.select-hint{margin:9px 0 0;font-size:13px;color:#688076;line-height:1.5}
