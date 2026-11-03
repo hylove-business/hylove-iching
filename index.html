@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173e38">
+  <meta name="description" content="易經六十四卦查詢示範網站。可依卦名查詢原卦與相反卦（錯卦）卡片。">
+  <title>易經卦象查詢｜錯卦版測試</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/hexagrams-data.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">ICHING · HEXAGRAM LOOKUP</div>
+      <h1>易經卦象查詢</h1>
+      <p>輸入卦名，查看原卦卡片，以及其相反卦（目前採用「錯卦」：六爻陰陽全部相反）的卡片。</p>
+      <span class="testing">V1.3 測試版 · 已套用公司掃描卡片／相反卦採錯卦</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="search-panel" aria-labelledby="search-title">
+      <h2 id="search-title">查詢六十四卦</h2>
+      <p class="hint">可輸入完整卦名（如「乾為天」）或簡稱（如「乾」），也可以從選單選擇。</p>
+      <form id="search-form" class="search-form">
+        <label for="hex-input">卦象名稱</label>
+        <div class="search-row">
+          <input id="hex-input" name="hexagram" type="search" placeholder="例如：乾、既濟、地天泰" autocomplete="off" list="hex-options" required>
+          <datalist id="hex-options"></datalist>
+          <button type="submit">查詢卦象</button>
+        </div>
+        <div class="quick-row"><span>快速查詢：</span><button type="button" data-quick="乾">乾</button><button type="button" data-quick="坤">坤</button><button type="button" data-quick="泰">泰</button><button type="button" data-quick="既濟">既濟</button><button type="button" data-quick="未濟">未濟</button></div>
+      </form>
+      <p id="status" role="status" aria-live="polite">正在載入六十四卦資料…</p>
+    </section>
+    <section id="results" aria-label="查詢結果" hidden>
+      <div class="results-heading"><h2>查詢結果</h2><span id="result-subtitle"></span></div>
+      <div class="cards">
+        <article class="result-card">
+          <div class="card-top"><span class="tag">原卦</span><span id="original-id" class="number"></span></div>
+          <h3 id="original-name"></h3>
+          <div class="card-scans">
+            <figure><figcaption>卦象正面</figcaption><img id="original-image" alt="" width="400" height="620"></figure>
+            <figure><figcaption>文字背面</figcaption><img id="original-back-image" alt="" width="400" height="620"></figure>
+          </div>
+          <p class="card-footnote">圖片取自公司提供的 128 頁掃描 PDF，依頁碼配對（每卦 2 頁）。</p>
+        </article>
+        <article class="result-card">
+          <div class="card-top"><span class="tag outline">相反卦（錯卦）</span><span id="opposite-id" class="number"></span></div>
+          <h3 id="opposite-name"></h3>
+          <div class="card-scans" id="opposite-scans">
+            <figure><figcaption>卦象正面</figcaption><img id="opposite-image" alt="" width="400" height="620"></figure>
+            <figure><figcaption>文字背面</figcaption><img id="opposite-back-image" alt="" width="400" height="620"></figure>
+          </div>
+          <p class="card-footnote" id="opposite-note">目前相反卦採用易經學理上的「錯卦」：六爻陰陽全部相反。若老闆之後改要綜卦或公司自訂對應，只需更新資料檔。</p>
+        </article>
+      </div>
+      <div class="notice" style="margin-top:16px;">
+        <strong>目前相反卦定義</strong>
+        <p>本版先採用「錯卦」作為相反卦：將六爻的陰陽全部反轉。例如：乾為天 ↔ 坤為地、既濟 ↔ 未濟。</p>
+      </div>
+    </section>
+    <section class="notice" aria-label="版本說明"><strong>版本說明</strong><p>此網站為內部測試用途。六十四卦已套用公司提供的掃描圖（每卦正反兩面）；相反卦目前採用易經學理上的錯卦。無需登入、不收集使用者輸入內容。</p></section>
+  </main>
+  <footer>易經卦象查詢 · V1.3 錯卦版測試</footer>
+</body>
+</html>
