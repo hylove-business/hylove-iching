@@ -35,14 +35,17 @@ function render(hex) {
   document.querySelector('#original-name').textContent = hex.name;
   setImage(document.querySelector('#original-image'), hex.image, `${hex.name}卦象正面掃描圖片`);
   setImage(document.querySelector('#original-back-image'), hex.backImage, `${hex.name}文字背面掃描圖片`);
-  const opposite = hexagrams.find(h => h.id === hex.oppositeId);
-  document.querySelector('#opposite-name').textContent = opposite ? opposite.name : '查無對應';
-  document.querySelector('#opposite-id').textContent = opposite ? `No. ${String(opposite.id).padStart(2,'0')}` : '';
-  if (opposite) {
-    setImage(document.querySelector('#opposite-image'), opposite.image, `${opposite.name}卦象正面掃描圖片`);
-    setImage(document.querySelector('#opposite-back-image'), opposite.backImage, `${opposite.name}文字背面掃描圖片`);
+  // 綜卦：六爻上下倒序（第一爻與第六爻互換）；陰陽本身不變。
+  // 原資料 oppositeId 為「錯卦」，不可沿用。
+  const reversedPattern = hex.binaryPatternBottomUp.split('').reverse().join('');
+  const zong = hexagrams.find(h => h.binaryPatternBottomUp === reversedPattern);
+  document.querySelector('#opposite-name').textContent = zong ? zong.name : '查無對應';
+  document.querySelector('#opposite-id').textContent = zong ? `No. ${String(zong.id).padStart(2,'0')}` : '';
+  if (zong) {
+    setImage(document.querySelector('#opposite-image'), zong.image, `${zong.name}綜卦正面掃描圖片`);
+    setImage(document.querySelector('#opposite-back-image'), zong.backImage, `${zong.name}綜卦文字背面掃描圖片`);
   }
-  statusEl.textContent = `已找到：${hex.name}${opposite ? `；其相反卦（錯卦）為 ${opposite.name}` : ''}`;
+  statusEl.textContent = `已找到：${hex.name}${zong ? `；其綜卦（六爻上下倒序）為 ${zong.name}` : ''}`;
 }
 function search(value) {
   if (!hexagrams.length) { statusEl.textContent = '資料尚未載入。'; return; }
@@ -86,7 +89,7 @@ function recordLine(value) {
     const hex = hexagrams.find(h => h.binaryPatternBottomUp === casts.join(''));
     if (hex) {
       search(hex.name);
-      castStatus.textContent = `完成！六爻對應第 ${hex.id} 卦：${hex.name}。下方已顯示原卦與錯卦圖片。`;
+      castStatus.textContent = `完成！六爻對應第 ${hex.id} 卦：${hex.name}。下方已顯示原卦與綜卦圖片。`;
       resultsEl.scrollIntoView({behavior:'smooth',block:'start'});
     } else {
       castStatus.textContent = '無法比對六十四卦資料，請確認資料檔。';
